@@ -1,5 +1,5 @@
 <template>
- <h1>
+ <section class="container px-3">
   T I M E L I N E
- </h1>
+ </section>
 </template>
