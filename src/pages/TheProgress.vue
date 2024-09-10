@@ -1,5 +1,5 @@
 <template>
- <section class="container px-3">
+ <section class="container">
   P R O G R E S S
  </section>
 </template>

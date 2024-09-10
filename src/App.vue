@@ -11,7 +11,7 @@ const currontPage = ref(normalaizPageHash())
 
 function normalaizPageHash() {
   const hash = window.location.hash.slice(1)
-  if ([ PAGE_TIMELINE, PAGE_ACTIVITIES, PAGE_PROGRESS].includes(hash)) {
+  if ([PAGE_TIMELINE, PAGE_ACTIVITIES, PAGE_PROGRESS].includes(hash)) {
     return hash;
   }
 
@@ -22,16 +22,13 @@ function normalaizPageHash() {
 </script>
 // ssjshj
 <template>
-  <TheHeader />
+  <TheHeader @go-to-timline="currontPage = PAGE_TIMELINE" @go-to-progress="currontPage = PAGE_PROGRESS" />
   <!-- main -->
-  <main class="flex flex-grow flex-col">
+  <main class="flex flex-grow flex-col p-3">
     <TheTimeline v-show="currontPage === PAGE_TIMELINE" />
     <TheActivities v-show="currontPage === PAGE_ACTIVITIES" />
     <TheProgress v-show="currontPage === PAGE_PROGRESS" />
   </main>
   <!-- nav -->
-  <TheNav
-  :current-page="currontPage"
-  @navigate="currontPage = $event"
-  />
+  <TheNav :current-page="currontPage" @navigate="currontPage = $event" />
 </template>

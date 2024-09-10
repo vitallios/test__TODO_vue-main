@@ -1,5 +1,5 @@
 <template>
- <section class="container px-3" >
+ <section class="container" >
   A C T I V I T I E S
  </section>
 </template>
