@@ -14,15 +14,16 @@ function normalaizPageHash() {
   if ([PAGE_TIMELINE, PAGE_ACTIVITIES, PAGE_PROGRESS].includes(hash)) {
     return hash;
   }
-
   window.location.hash = PAGE_TIMELINE
   return PAGE_ACTIVITIES;
 }
 
+function goTo(page) {
+  currontPage.value = page
+}
 </script>
-// ssjshj
 <template>
-  <TheHeader @go-to-timline="currontPage = PAGE_TIMELINE" @go-to-progress="currontPage = PAGE_PROGRESS" />
+  <TheHeader @go-to-timline="goTo(PAGE_TIMELINE) " @go-to-progress="goTo(PAGE_PROGRESS)" />
   <!-- main -->
   <main class="flex flex-grow flex-col p-3">
     <TheTimeline v-show="currontPage === PAGE_TIMELINE" />
@@ -30,5 +31,5 @@ function normalaizPageHash() {
     <TheProgress v-show="currontPage === PAGE_PROGRESS" />
   </main>
   <!-- nav -->
-  <TheNav :current-page="currontPage" @navigate="currontPage = $event" />
+  <TheNav :current-page="currontPage" @navigate="goTo($event)" />
 </template>
