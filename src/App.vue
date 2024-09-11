@@ -1,22 +1,14 @@
 <script setup>
 import { ref } from 'vue'
-import { PAGE_TIMELINE, PAGE_ACTIVITIES, PAGE_PROGRESS } from './constants'
-import TheHeader from "./components/TheHeader.vue";
-import TheNav from "./components/TheNav.vue";
-import TheTimeline from "./pages/TheTimeline.vue";
-import TheActivities from "./pages/TheActivities.vue";
-import TheProgress from "./pages/TheProgress.vue";
+import { normalaizPageHash } from '@/funcsion';
+import { PAGE_TIMELINE, PAGE_ACTIVITIES, PAGE_PROGRESS } from '@/constants'
+import TheHeader from "@/components/TheHeader.vue";
+import TheNav from "@/components/TheNav.vue";
+import TheTimeline from "@/pages/TheTimeline.vue";
+import TheActivities from "@/pages/TheActivities.vue";
+import TheProgress from "@/pages/TheProgress.vue";
 
 const currontPage = ref(normalaizPageHash())
-
-function normalaizPageHash() {
-  const hash = window.location.hash.slice(1)
-  if ([PAGE_TIMELINE, PAGE_ACTIVITIES, PAGE_PROGRESS].includes(hash)) {
-    return hash;
-  }
-  window.location.hash = PAGE_TIMELINE
-  return PAGE_ACTIVITIES;
-}
 
 function goTo(page) {
   currontPage.value = page
