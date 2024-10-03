@@ -6,7 +6,6 @@ defineProps(['currentPage'])
 
 const emit = defineEmits(['navigate'])
 
-
 </script>
 <template>
   <nav class=" sticky bottom-0 z-10 text-3xl bg-white">

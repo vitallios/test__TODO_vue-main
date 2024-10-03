@@ -1,6 +1,6 @@
 <script setup>
 import { XMarkIcon } from '@heroicons/vue/24/outline';
-
+import { OPTIONS } from '@/constants'
 const props = defineProps(['timlineItem'])
 //
 const hourLinkClasses = [
@@ -10,11 +10,7 @@ const hourLinkClasses = [
       : 'bg-gray-100 text-gray-500'
 ]
 
-const opsions = [
-   {value: 1, label: 'C O D I N G'},
-   {value: 2, label: 'R E A D I N G'},
-   {value: 3, label: 'T R A I N I N G'},
-]
+
 //
 </script>
 
@@ -26,9 +22,9 @@ const opsions = [
             class=" rounded bg-gray-100 p-3 enabled:hover:bg-gray-200 disabled:cursor-not-allowed disabled:opacity-50">
             <XMarkIcon class="h-8" />
          </button>
-         <select name="" id="" class=" w-full truncate rounded bg-gray-100 py-1 px-2 text-2xl">
+         <select name="" id="" class=" w-full truncate rounded bg-gray-100 py-1 px-2 text-2xl outline-none">
             <option selected disabled value="">R E S T</option>
-            <option v-for="{ value, label } in opsions" :key="value" :value="value">
+            <option v-for="{ value, label } in OPTIONS" :key="value" :value="value" class=" border-none">
                {{ label }}
             </option>
          </select>
